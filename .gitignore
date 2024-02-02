@@ -46,8 +46,8 @@ env/
 /media/
 !/media/.gitkeep
 
-/static/
-!/static/.gitkeep
+# /static/
+# !/static/.gitkeep
 
 # Secrets
 secrets.json
