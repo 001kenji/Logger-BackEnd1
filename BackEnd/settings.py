@@ -12,14 +12,15 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
-import dotenv 
+from dotenv import load_dotenv
+load_dotenv() 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-dotenv_file = os.path.join(BASE_DIR, '.env')
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
+# dotenv_file = os.path.join(BASE_DIR, '.env')
+# if os.path.isfile(dotenv_file):
+#     dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -30,7 +31,7 @@ SECRET_KEY = 'django-insecure-rq)fd%oea&f6fwk&^5r&o=@!+urj2ms&^nttz1#^7e^qlabb0n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ["127.0.0.1",'.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -87,22 +88,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     #}
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'MackDB',
-       'USER': 'MACK',
-       'PASSWORD': '@mack001',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
-   }
-        # 'default': {
-        #     'ENGINE': os.environ['ENGINE'],
-        #     'NAME': os.environ['NAME'],
-        #     'USER': os.environ['USER'],
-        #     'PASSWORD': os.environ['PASSWORD'],
-        #     'HOST': os.environ['HOST'],
-        #     'PORT': os.environ['PORT'],
-        # }
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'MackDB',
+#        'USER': 'MACK',
+#        'PASSWORD': '@mack001',
+#        'HOST': '127.0.0.1',
+#        'PORT': '5432',
+#    }
+        'default': {
+            'ENGINE': os.environ.get('ENGINE'),
+            'NAME': os.environ.get('NAME'),
+            'USER': os.environ.get('USER'),
+            'PASSWORD': os.environ.get('PASSWORD'),
+            'HOST': os.environ.get('HOST'),
+            'PORT': os.environ.get('PORT'),
+        }
 }
 
 
