@@ -88,22 +88,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     #}
-#     'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'MackDB',
-#        'USER': 'MACK',
-#        'PASSWORD': '@mack001',
-#        'HOST': '127.0.0.1',
-#        'PORT': '5432',
-#    }
-        'default': {
-            'ENGINE': os.environ.get('ENGINE'),
-            'NAME': os.environ.get('NAME'),
-            'USER': os.environ.get('USER'),
-            'PASSWORD': os.environ.get('PASSWORD'),
-            'HOST': os.environ.get('HOST'),
-            'PORT': os.environ.get('PORT'),
-        }
+    'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'MackDB',
+       'USER': 'MACK',
+       'PASSWORD': '@mack001',
+       'HOST': '127.0.0.1',
+       'PORT': '5432',
+   }
+        # 'default': {
+        #     'ENGINE': 'os.environ.get('ENGINE')',
+        #     'NAME': os.environ.get('NAME'),
+        #     'USER': os.environ.get('USER'),
+        #     'PASSWORD': os.environ.get('PASSWORD'),
+        #     'HOST': os.environ.get('HOST'),
+        #     'PORT': os.environ.get('PORT'),
+        # }
 }
 
 
@@ -145,7 +145,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 STATIC_URL = 'static/'
 
 # 4.1.5
-# STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
