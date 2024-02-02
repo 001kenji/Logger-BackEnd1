@@ -12,9 +12,14 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+
+import dotenv 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+dotenv_file = os.path.join(BASE_DIR, '.env')
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenc_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -82,14 +87,22 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'MackDB',
-       'USER': 'MACK',
-       'PASSWORD': '@mack001',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
-   }
+#     'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'MackDB',
+#        'USER': 'MACK',
+#        'PASSWORD': '@mack001',
+#        'HOST': '127.0.0.1',
+#        'PORT': '5432',
+#    }
+        'default': {
+            'ENGINE': os.environ['ENGINE'],
+            'NAME': os.environ['NAME'],
+            'USER': os.environ['USER'],
+            'PASSWORD': os.environ['PASSWORD'],
+            'HOST': os.environ['HOST'],
+            'PORT': os.environ['PORT'],
+        }
 }
 
 
@@ -130,7 +143,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 STATIC_URL = 'static/'
 
-
+# 4.1.5
 # STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 # Default primary key field type
