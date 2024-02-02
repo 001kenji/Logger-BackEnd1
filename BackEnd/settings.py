@@ -88,22 +88,15 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     #}
-    'default': {
-       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'MackDB',
-       'USER': 'MACK',
-       'PASSWORD': '@mack001',
-       'HOST': '127.0.0.1',
-       'PORT': '5432',
-   }
-        # 'default': {
-        #     'ENGINE': 'os.environ.get('ENGINE')',
-        #     'NAME': os.environ.get('NAME'),
-        #     'USER': os.environ.get('USER'),
-        #     'PASSWORD': os.environ.get('PASSWORD'),
-        #     'HOST': os.environ.get('HOST'),
-        #     'PORT': os.environ.get('PORT'),
-        # }
+
+        'default': {
+            'ENGINE': os.environ.get('ENGINE'),
+            'NAME': os.environ.get('NAME'),
+            'USER': os.environ.get('USER'),
+            'PASSWORD': os.environ.get('PASSWORD'),
+            'HOST': os.environ.get('HOST'),
+            'PORT': os.environ.get('PORT'),
+        }
 }
 
 
